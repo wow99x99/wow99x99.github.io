@@ -1,0 +1,23 @@
+<html>
+        <body>
+        <p id="demo">Получение геолокации...</p>
+        <script>
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition, showError);
+            } else {
+                document.getElementById("demo").innerHTML = "Геолокация не поддерживается этим браузером.";
+            }
+        }
+        function showPosition(position) {
+            var lat = position.coords.latitude;
+            var lon = position.coords.longitude;
+            document.getElementById("demo").innerHTML = lat + "," + lon;
+        }
+        function showError(error) {
+            document.getElementById("demo").innerHTML = "Ошибка: " + error.message;
+        }
+        getLocation();
+        </script>
+        </body>
+        </html>
